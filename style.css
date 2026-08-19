@@ -1,90 +1,10 @@
-/* Variables de colores (Tonos suaves) */
-:root {
-    --bg-color: #fcf9f2;
-    --text-primary: #3d2c23;
-    --accent-color: #e08b8b;
-    --card-bg: #ffffff;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-}
-
-.app-container {
-    max-width: 480px; /* Optimizado para celular */
-    margin: 0 auto;
-    background-color: var(--bg-color);
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    min-height: 100vh;
-}
-
-h1, h2, .signature {
-    font-family: 'Playfair Display', serif;
-    color: var(--accent-color);
-}
-
-/* Secciones generales */
-.section {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    text-align: center;
-}
-
-/* Portada */
-.hero {
-    min-height: 100vh;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.scroll-indicator {
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    opacity: 0.6;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-/* Carta */
-.letter-section p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-.letter-section h2 {
-    text-align: left;
-    margin-bottom: 1.5rem;
-}
-
-/* --- Galería Deslizable (Swipe) --- */
+/* --- Galería Deslizable (Un solo marco a la vez) --- */
 .slider-container {
     width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 10px 0 20px 0;
+    padding: 20px 0;
     /* Ocultar scrollbar */
     scrollbar-width: none; 
     -ms-overflow-style: none;
@@ -96,15 +16,17 @@ h1, h2, .signature {
 
 .slider-track {
     display: flex;
-    gap: 15px;
-    padding: 0 10px;
+    /* El espacio exacto para empujar la siguiente foto fuera de la pantalla */
+    gap: 10vw; 
+    padding: 0 10vw; 
 }
 
 .photo-card.slide {
-    flex: 0 0 85%; /* La foto ocupa casi toda la pantalla */
+    flex: 0 0 80vw; /* La tarjeta ocupa el centro */
+    max-width: 400px;
     scroll-snap-align: center;
     background: var(--card-bg);
-    padding: 12px;
+    padding: 15px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.08);
 }
@@ -132,23 +54,4 @@ h1, h2, .signature {
 @keyframes pulse {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
-}
-
-/* Footer */
-.footer {
-    min-height: 40vh;
-}
-.footer p { font-size: 1.5rem; }
-.signature { font-size: 2rem; margin-top: 1rem; }
-
-/* Animaciones de aparición al bajar */
-.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
 }
