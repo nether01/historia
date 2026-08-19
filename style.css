@@ -1,4 +1,4 @@
-/* Variables de colores (Tonos suaves y románticos) */
+/* Variables de colores (Tonos suaves) */
 :root {
     --bg-color: #fcf9f2;
     --text-primary: #3d2c23;
@@ -20,7 +20,7 @@ body {
 }
 
 .app-container {
-    max-width: 480px; /* Tamaño de un celular estándar */
+    max-width: 480px; /* Optimizado para celular */
     margin: 0 auto;
     background-color: var(--bg-color);
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
@@ -78,22 +78,38 @@ h1, h2, .signature {
     margin-bottom: 1.5rem;
 }
 
-/* Galería de Tarjetas */
-.photo-card {
+/* --- Galería Deslizable (Swipe) --- */
+.slider-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 10px 0 20px 0;
+    /* Ocultar scrollbar */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-track {
+    display: flex;
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.photo-card.slide {
+    flex: 0 0 85%; /* La foto ocupa casi toda la pantalla */
+    scroll-snap-align: center;
     background: var(--card-bg);
-    padding: 10px;
+    padding: 12px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-    margin-bottom: 2rem;
-    transform: rotate(-2deg);
-    transition: transform 0.3s ease;
 }
 
-.photo-card:nth-child(even) {
-    transform: rotate(2deg);
-}
-
-.photo-card img {
+.photo-card.slide img {
     width: 100%;
     border-radius: 8px;
     display: block;
@@ -106,6 +122,18 @@ h1, h2, .signature {
     color: #555;
 }
 
+.swipe-hint {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 15px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
 /* Footer */
 .footer {
     min-height: 40vh;
@@ -113,7 +141,7 @@ h1, h2, .signature {
 .footer p { font-size: 1.5rem; }
 .signature { font-size: 2rem; margin-top: 1rem; }
 
-/* Clases para la animación de aparición */
+/* Animaciones de aparición al bajar */
 .hidden {
     opacity: 0;
     transform: translateY(40px);
