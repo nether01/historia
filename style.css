@@ -1,0 +1,126 @@
+/* Variables de colores (Tonos suaves y románticos) */
+:root {
+    --bg-color: #fcf9f2;
+    --text-primary: #3d2c23;
+    --accent-color: #e08b8b;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.app-container {
+    max-width: 480px; /* Tamaño de un celular estándar */
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    min-height: 100vh;
+}
+
+h1, h2, .signature {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-color);
+}
+
+/* Secciones generales */
+.section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Portada */
+.hero {
+    min-height: 100vh;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.scroll-indicator {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Carta */
+.letter-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.letter-section h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+/* Galería de Tarjetas */
+.photo-card {
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-card img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
+}
+
+/* Footer */
+.footer {
+    min-height: 40vh;
+}
+.footer p { font-size: 1.5rem; }
+.signature { font-size: 2rem; margin-top: 1rem; }
+
+/* Clases para la animación de aparición */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
